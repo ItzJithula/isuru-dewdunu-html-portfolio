@@ -23,10 +23,28 @@
                     <li><a href="#gallery" class="nav-link">Gallery</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                <div class="hamburger" id="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                <div class="nav-actions">
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -44,13 +62,12 @@
                 <a href="#gallery" class="btn btn-primary">View My Work</a>
             </div>
             <div class="hero-image">
-                <img src="https://i.ibb.co/QvStWgvv/Whats-App-Image-2026-05-06-at-5-19-30-PM.jpg" alt="Isuru Dewdunu" class="profile-photo">
+                <div class="profile-wrapper">
+                    <img src="https://i.ibb.co/QvStWgvv/Whats-App-Image-2026-05-06-at-5-19-30-PM.jpg" alt="Isuru Dewdunu" class="profile-photo">
+                </div>
             </div>
         </div>
     </section>
-
-    <!-- Divider -->
-    <div class="divider"></div>
 
     <!-- About Section -->
     <section id="about" class="about">
@@ -71,56 +88,62 @@
         </div>
     </section>
 
-    <!-- Divider -->
-    <div class="divider"></div>
-
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <div class="container">
             <h3 class="section-title">Portfolio</h3>
             <div class="gallery-grid">
-                <div class="gallery-item gallery-item-large">
-                    <img src="https://i.ibb.co/ch1k7yMZ/Whats-App-Image-2026-05-06-at-3-49-14-PM.jpg" alt="Portrait Study I">
-                    <div class="gallery-overlay">
-                        <p class="gallery-title">Portrait Study I</p>
+                <div class="gallery-item" data-index="0">
+                    <div class="gallery-image-wrapper">
+                        <img src="https://i.ibb.co/ch1k7yMZ/Whats-App-Image-2026-05-06-at-3-49-14-PM.jpg" alt="Portrait Study I">
+                        <div class="gallery-overlay">
+                            <p class="gallery-title">Portrait Study I</p>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://i.ibb.co/MyKNsm2j/Whats-App-Image-2026-05-06-at-3-49-13-PM-2.jpg" alt="Portrait Study II">
-                    <div class="gallery-overlay">
-                        <p class="gallery-title">Portrait Study II</p>
+                <div class="gallery-item" data-index="1">
+                    <div class="gallery-image-wrapper">
+                        <img src="https://i.ibb.co/MyKNsm2j/Whats-App-Image-2026-05-06-at-3-49-13-PM-2.jpg" alt="Portrait Study II">
+                        <div class="gallery-overlay">
+                            <p class="gallery-title">Portrait Study II</p>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://i.ibb.co/5WtZ6XZK/Whats-App-Image-2026-05-06-at-3-49-13-PM-1.jpg" alt="Portrait Study III">
-                    <div class="gallery-overlay">
-                        <p class="gallery-title">Portrait Study III</p>
+                <div class="gallery-item" data-index="2">
+                    <div class="gallery-image-wrapper">
+                        <img src="https://i.ibb.co/5WtZ6XZK/Whats-App-Image-2026-05-06-at-3-49-13-PM-1.jpg" alt="Portrait Study III">
+                        <div class="gallery-overlay">
+                            <p class="gallery-title">Portrait Study III</p>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://i.ibb.co/MrfkdCD/Whats-App-Image-2026-05-06-at-3-49-13-PM.jpg" alt="Portrait Study IV">
-                    <div class="gallery-overlay">
-                        <p class="gallery-title">Portrait Study IV</p>
+                <div class="gallery-item" data-index="3">
+                    <div class="gallery-image-wrapper">
+                        <img src="https://i.ibb.co/MrfkdCD/Whats-App-Image-2026-05-06-at-3-49-13-PM.jpg" alt="Portrait Study IV">
+                        <div class="gallery-overlay">
+                            <p class="gallery-title">Portrait Study IV</p>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://i.ibb.co/yF6vqRZv/Whats-App-Image-2026-05-06-at-3-49-12-PM-1.jpg" alt="Portrait Study V">
-                    <div class="gallery-overlay">
-                        <p class="gallery-title">Portrait Study V</p>
+                <div class="gallery-item" data-index="4">
+                    <div class="gallery-image-wrapper">
+                        <img src="https://i.ibb.co/yF6vqRZv/Whats-App-Image-2026-05-06-at-3-49-12-PM-1.jpg" alt="Portrait Study V">
+                        <div class="gallery-overlay">
+                            <p class="gallery-title">Portrait Study V</p>
+                        </div>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <img src="https://i.ibb.co/4ZzDXJTj/Whats-App-Image-2026-05-06-at-3-49-12-PM.jpg" alt="Portrait Study VI">
-                    <div class="gallery-overlay">
-                        <p class="gallery-title">Portrait Study VI</p>
+                <div class="gallery-item" data-index="5">
+                    <div class="gallery-image-wrapper">
+                        <img src="https://i.ibb.co/4ZzDXJTj/Whats-App-Image-2026-05-06-at-3-49-12-PM.jpg" alt="Portrait Study VI">
+                        <div class="gallery-overlay">
+                            <p class="gallery-title">Portrait Study VI</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Divider -->
-    <div class="divider"></div>
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
@@ -166,9 +189,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Divider -->
-    <div class="divider"></div>
 
     <!-- Footer -->
     <footer class="footer">

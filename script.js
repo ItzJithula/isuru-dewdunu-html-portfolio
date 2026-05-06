@@ -1,8 +1,41 @@
 /* ============================================
-   MINIMALIST ARTIST PORTFOLIO - JAVASCRIPT
+   MODERN ARTIST PORTFOLIO - JAVASCRIPT
+   Dark/Light Theme Support & Fresh Animations
    ============================================ */
 
-// Mobile Menu Toggle
+// ============================================
+// THEME SWITCHER
+// ============================================
+
+const themeToggle = document.getElementById('themeToggle');
+const htmlElement = document.documentElement;
+const body = document.body;
+
+// Check for saved theme preference or default to light mode
+const currentTheme = localStorage.getItem('theme') || 'light-theme';
+if (currentTheme === 'dark-theme') {
+    body.classList.add('dark-theme');
+}
+
+// Theme toggle event listener
+themeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-theme');
+    
+    // Save preference
+    const theme = body.classList.contains('dark-theme') ? 'dark-theme' : 'light-theme';
+    localStorage.setItem('theme', theme);
+    
+    // Add animation
+    themeToggle.style.transform = 'rotate(180deg)';
+    setTimeout(() => {
+        themeToggle.style.transform = 'rotate(0deg)';
+    }, 300);
+});
+
+// ============================================
+// MOBILE MENU TOGGLE
+// ============================================
+
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -20,7 +53,10 @@ navLinks.forEach(link => {
     });
 });
 
-// Gallery Modal
+// ============================================
+// GALLERY MODAL
+// ============================================
+
 const galleryItems = document.querySelectorAll('.gallery-item');
 const modal = document.getElementById('imageModal');
 const modalImage = document.getElementById('modalImage');
@@ -36,6 +72,12 @@ galleryItems.forEach(item => {
         modalCaption.textContent = title;
         modal.classList.add('show');
         document.body.style.overflow = 'hidden';
+        
+        // Add animation
+        modalImage.style.animation = 'none';
+        setTimeout(() => {
+            modalImage.style.animation = 'zoomIn 0.3s ease';
+        }, 10);
     });
 });
 
@@ -59,7 +101,10 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Contact Form Handling
+// ============================================
+// CONTACT FORM HANDLING
+// ============================================
+
 const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
@@ -88,6 +133,9 @@ contactForm.addEventListener('submit', async (e) => {
             formStatus.classList.remove('error');
             formStatus.classList.add('success');
             
+            // Add animation
+            formStatus.style.animation = 'slideInUp 0.3s ease';
+            
             // Reset form
             contactForm.reset();
             
@@ -105,6 +153,9 @@ contactForm.addEventListener('submit', async (e) => {
         formStatus.classList.remove('success');
         formStatus.classList.add('error');
         
+        // Add animation
+        formStatus.style.animation = 'slideInUp 0.3s ease';
+        
         // Clear message after 5 seconds
         setTimeout(() => {
             formStatus.textContent = '';
@@ -117,7 +168,10 @@ contactForm.addEventListener('submit', async (e) => {
     }
 });
 
-// Smooth scroll offset for sticky header
+// ============================================
+// SMOOTH SCROLL WITH OFFSET
+// ============================================
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
@@ -136,7 +190,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Intersection Observer for fade-in animations
+// ============================================
+// INTERSECTION OBSERVER FOR ANIMATIONS
+// ============================================
+
 const observerOptions = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
@@ -152,21 +209,54 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe gallery items for fade-in effect
-galleryItems.forEach((item, index) => {
-    item.style.opacity = '0';
-    item.style.transform = 'translateY(20px)';
-    item.style.transition = `opacity 0.6s ease ${index * 50}ms, transform 0.6s ease ${index * 50}ms`;
+galleryItems.forEach((item) => {
     observer.observe(item);
 });
 
-// Add scroll event listener for header shadow
+// ============================================
+// HEADER SHADOW ON SCROLL
+// ============================================
+
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     if (window.scrollY > 10) {
-        header.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.08)';
+        header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
     } else {
         header.style.boxShadow = 'none';
     }
 });
 
-console.log('Portfolio loaded successfully!');
+// ============================================
+// PARALLAX EFFECT ON HERO
+// ============================================
+
+window.addEventListener('scroll', () => {
+    const heroImage = document.querySelector('.hero-image');
+    if (heroImage) {
+        const scrollPosition = window.scrollY;
+        heroImage.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+    }
+});
+
+// ============================================
+// CURSOR EFFECTS (Optional)
+// ============================================
+
+document.addEventListener('mousemove', (e) => {
+    const buttons = document.querySelectorAll('.btn-primary');
+    buttons.forEach(btn => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        btn.style.setProperty('--mouse-x', `${x}px`);
+        btn.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
+
+// ============================================
+// CONSOLE MESSAGE
+// ============================================
+
+console.log('%c✨ Welcome to Isuru Dewdunu\'s Portfolio ✨', 'color: #3b82f6; font-size: 16px; font-weight: bold;');
+console.log('%cDesigned with modern aesthetics and smooth animations', 'color: #64748b; font-size: 12px;');
