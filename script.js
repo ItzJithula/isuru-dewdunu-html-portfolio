@@ -227,32 +227,34 @@ window.addEventListener('scroll', () => {
 });
 
 // ============================================
-// PARALLAX EFFECT ON HERO
+// PARALLAX EFFECT ON HERO (Desktop only)
 // ============================================
 
 window.addEventListener('scroll', () => {
     const heroImage = document.querySelector('.hero-image');
-    if (heroImage) {
+    if (heroImage && window.innerWidth > 768) {
         const scrollPosition = window.scrollY;
         heroImage.style.transform = `translateY(${scrollPosition * 0.3}px)`;
     }
 });
 
 // ============================================
-// CURSOR EFFECTS (Optional)
+// CURSOR EFFECTS (Desktop only)
 // ============================================
 
-document.addEventListener('mousemove', (e) => {
-    const buttons = document.querySelectorAll('.btn-primary');
-    buttons.forEach(btn => {
-        const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        btn.style.setProperty('--mouse-x', `${x}px`);
-        btn.style.setProperty('--mouse-y', `${y}px`);
+if (window.innerWidth > 768) {
+    document.addEventListener('mousemove', (e) => {
+        const buttons = document.querySelectorAll('.btn-primary');
+        buttons.forEach(btn => {
+            const rect = btn.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            btn.style.setProperty('--mouse-x', `${x}px`);
+            btn.style.setProperty('--mouse-y', `${y}px`);
+        });
     });
-});
+}
 
 // ============================================
 // CONSOLE MESSAGE
